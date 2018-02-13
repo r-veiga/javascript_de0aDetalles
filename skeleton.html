@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sección 1. Vídeo 03. Primer código. 03primer.html  </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  
+  
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="h4 text-muted">Javascript: De 0 al infinito :: Sección 1 - Empezando</div>
+      </div>
+      <div class="row">
+        <div class="h2">s1 v03 - Mi primer código</div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h3 class="row"></h3>
+      <p class="row">
+	    Javascript crea el Global Object que me almacena cualquier objeto. 
+        Con las herramientas de desarrollador del web browser puedo comprobarlo. 
+	  </p>
+      <h3 class="row">Cómo puedo ver el Global Object</h3>
+      <p class="row">
+        Escribo en la consola Javascript (F12) <code class="text-primary">window</code> 
+		y veo ese objeto. Lo reconozco como objeto porque el contenido está entre llaves.
+		Al desplegar el resultado podré ver que almacena muchos valores: 
+		son todos los objetos y propiedades Javascript. 
+      </p>
+      <h3 class="row">Añado un par de propiedades en el Global Object</h3>
+      <p class="row">
+        Simplemente creo dos propiedades en mi código Javascript. 
+      </p>      
+	  <p class="row">
+        En mi bloque de código escribo:
+		<pre class="text-primary">
+&lt;script type="text/javascript"&gt;
+  var a = 1;
+  var b = "Roberto";
+&lt;\script&gt;
+		</pre>
+      </p>
+	  <p>
+	  Como trabajo en un navegador web, el Global Object es <code class="text-primary">window</code>. 
+	  Recargo la página y podré encontrar dentro <code class="text-primary">a</code> 
+	  y <code class="text-primary">b</code>
+	  </p>
+    </main>
+    
+        
+    <footer class="container" id="botones">
+      <div class="row"> 
+        <a href="021index.html" class="btn btn-primary mr-2">&lt;&lt; 021 Anterior</a>
+        <a href="023index.html" class="btn btn-primary ml-2">Siguiente 023 &gt;&gt;</a>
+      </div>
+    </footer>
+    
+    <script type="text/javascript">
+	  var a = 1;
+	  var b = "Roberto";
+	</script> 
+  </body>
+</html>

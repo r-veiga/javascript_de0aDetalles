@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sección 1. Vídeo 08. El orden de las importaciones. 08ordenImportaciones.html  </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  
+  
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="h4 text-muted">Javascript: De 0 al infinito :: Sección 1 - Empezando</div>
+      </div>
+      <div class="row">
+        <div class="h2"><b>s1 v08 - El orden de las importaciones</b></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h3 class="row">Es importante el orden de los ficheros .js importados</h3>
+      <p class="row">
+        De manera similar al iSeries, existe una prioridad de selección de objetos 
+        contenidos en ficheros .js y que depende del orden en que se incorporan estos 
+        ficheros .js. 
+      </p>
+      <p class="row">
+        El comportamiento se puede entender como si se fuesen haciendo append de los distintos 
+        bloques de Javascript. 
+        <br>Por tanto si en el orden de los bloques resulta que uso una variable que se declara en un 
+        bloque posterior, obtendré undefined. Para que funcione bien, debo ponerlos en el orden correcto. 
+      </p class="row">
+      <p><strong>miJavascript01.js<strong></p>
+      <pre class="text-primary">
+console.log(pepito); 
+      </pre>
+      <p><strong>miJavascript02.js</strong></p>
+      <pre class="text-primary">
+var pepito = "Pepito is my name, no me lo desgastes.";    
+      </pre>
+      <p><strong>miPagina.html</strong></p>
+      <pre class="text-primary">
+&lt;body&gt;
+    Con este orden se emplea la propiedad "pepito" antes de declararla.
+    &lt;script src="miJavascript01.js"&gt;&lt;/script&gt;
+    &lt;script src="miJavascript02.js"&gt;&lt;/script&gt;
+&lt;/body&gt;     
+      </pre>
+        
+    </main>
+    
+        
+    <footer class="container" id="botones">
+      <div class="row"> 
+        <a href="07esAsincrono.html" class="btn btn-primary mr-2">&lt;&lt; 07 ¿Es asíncrono?</a>
+        <a href="..\seccion02_vars_objs_Typeof_condicion\09primitivos.html" class="btn btn-primary ml-2">Tipos primitivos 09 &gt;&gt;</a>
+      </div>
+    </footer>
+    
+    <script>
+    </script> 
+  </body>
+</html>

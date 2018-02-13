@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sección 1. Vídeo 07. Javascript es asíncrono. 07esAsincrono.html  </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  
+  
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="h4 text-muted">Javascript: De 0 al infinito :: Sección 1 - Empezando</div>
+      </div>
+      <div class="row">
+        <div class="h2"><b>s1 v07 - Javascript es asíncrono</b></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h3 class="row">En cuanto se cargue esta página</h3>
+      <p class="row">
+        En cuanto se cargue esta página, se lanzará una función Javascript "imprimir()" 
+        que iterará 8.000 veces para imprimir la misma cadena. 
+      </p>
+      <h3 class="row">Pero si existe Ajax, ¿cómo que no es asíncrono?</h3>
+      <p class="row">
+        Si Javascript fuera realmente asíncrono, podría ejecutar dos funciones en paralelo. 
+        <br>Lo voy a demostrar mediante la función con el bucle larguísimo. Durante su ejecución 
+        puedo pulsar un botón que a su vez lanza otra función.
+        <br>Como Javascript es síncrono, la función lanzada por el botón no comenzará a ejecutarse 
+        hasta que termine la función que estaba en marcha (la del bucle).
+        <br>Si Javascript fuera asíncrono, podrían ejecutarse simultáneamente ambas funciones y 
+        cada una terminaría cuando tuviese que terminar. 
+      </p class="row">
+      <div id="botonPrueba" class="row"><button type=button" onclick="clickBoton();">Botón de "otra función Javascript"</button></div>
+      <pre class="text-primary">
+&lt;script&gt;
+  function imprimir() {
+    var inicio = new Date();
+    for(var i=0; i<8000; i++) {
+      console.log("Función imprimir. Esto es una iteración del bucle de 8000.");
+    }
+    var fin = new Date();
+    console.log("imprimir() tiempo de ejecución es  ==> " + (fin - inicio) );
+    console.log("imprimir() hora de fin             ==> " + fin);
+  }
+  
+  function clickBoton() {
+    console.log("clickBoton() comienzo de ejecución ==> " + new Date() );
+  }
+  
+  imprimir();     
+&lt;/script&gt; 
+        </pre>
+    </main>
+    
+        
+    <footer class="container" id="botones">
+      <div class="row"> 
+        <a href="06undefined.html" class="btn btn-primary mr-2">&lt;&lt; 06 El valor undefined</a>
+        <a href="08ordenImportaciones.html" class="btn btn-primary ml-2">El orden de las importaciones 08 &gt;&gt;</a>
+      </div>
+    </footer>
+    
+    <script>
+      function imprimir() {
+        var inicio = new Date();
+        for(var i=0; i<8000; i++) {
+          console.log("Función imprimir. Esto es una iteración del bucle de 8000.");
+        }
+        var fin = new Date();
+        console.log("imprimir() tiempo de ejecución es  ==> " + (fin - inicio) );
+        console.log("imprimir() hora de fin             ==> " + fin);
+      }
+      
+      function clickBoton() {
+        console.log("clickBoton() comienzo de ejecución ==> " + new Date() );
+      }
+      
+      imprimir();     
+    </script> 
+  </body>
+</html>

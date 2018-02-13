@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sección 1. Vídeo 06. El valor undefined. 06undefined.html  </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  
+  
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="h4 text-muted">Javascript: De 0 al infinito :: Sección 1 - Empezando</div>
+      </div>
+      <div class="row">
+        <div class="h2"><b>s1 v06 - El valor undefined</b></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h3 class="row">Las dos pasadas al código de Javascript</h3>
+      <p class="row">
+	    Javascript hace dos pasadas al código. 
+		<br> Una primera para localizar cuáles son las variables y reservar una referencia en memoria.
+		<br> Otra en ejecución donde asigna los valores a las referencias reservadas.
+	  </p>
+	  <p class="row">
+	    Por eso, emplear una variable declarada en un punto posterior a su ejecución no devuelve
+		<code class="text-alert">"ReferenceError: xxx is not defined"</code> sino que devuelve el valor 
+	    <code class="text-primary">undefined</code>
+		<pre class="text-primary">
+&lt;script&gt;
+  console.log( n1 );  
+  console.log( a );   
+  var a = "Variable A";  
+  var b = "Variable B";  
+  var c = "Variable C";  
+  var n1 = 1;
+  var n2 = 2;
+  console.log( b );    
+  console.log( c );  
+  console.log( n2 );  
+&lt;\script&gt;
+		</pre>
+		<p>Devolverá:</p>
+		<pre class="text-primary">
+  undefined
+  undefined
+  Variable B
+  Variable C
+  2
+		  </pre>
+	  </p>
+	  
+      <h3 class="row">undefined no es lo mismo que null</h3>
+      <p class="row">
+	    <code class="text-primary">undefined</code> significa que la variable ha sido creada pero que 
+		aún no se le ha asignado ningún valor.
+		<br><code class="text-primary">null</code> es un valor de asignación. Se le puede asignar a una 
+		variable para representar que no contiene ningún valor. 
+		<pre class="text-primary">
+undefined === null 		// Devuelve FALSE
+undefined == null  		// Devuelve TRUE
+        </pre>
+	  </p>
+    </main>
+    
+        
+    <footer class="container" id="botones">
+      <div class="row"> 
+        <a href="05comprenderLaConsola.html" class="btn btn-primary mr-2">&lt;&lt; 05 Comprender la consola</a>
+        <a href="07esAsincrono.html" class="btn btn-primary ml-2">Javascript es asíncrono 07 &gt;&gt;</a>
+      </div>
+    </footer>
+    
+    <script>
+	  console.log(">>> Comprobación de variables declaradas antes y después de su uso.");
+      console.log( n1 );  
+      console.log( a );   
+      var a = "Variable A";  
+      var b = "Variable B";  
+      var c = "Variable C";  
+      var n1 = 1;
+      var n2 = 2;
+      console.log( b );    
+      console.log( c );  
+      console.log( n2 );  
+	  
+      console.log(">>> undefined === null   ==> " + (undefined === null) );
+      console.log(">>> undefined == null    ==> " + (undefined == null) );
+	</script> 
+  </body>
+</html>

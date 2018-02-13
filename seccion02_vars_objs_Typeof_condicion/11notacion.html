@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sección 2. Vídeo 11. Notación de punto y corchetes. 11notacion.html  </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  
+  
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="h4 text-muted">Javascript: De 0 al infinito :: Sección 2 - Variables, objetos, Typeof y condicionales</div>
+      </div>
+      <div class="row">
+        <div class="h2"><b>s2 v11 - Notación de punto y corchetes</b></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h3 class="row">Notaciones</h3>
+      <p class="row">
+        Para atacar propiedades en un objeto.
+      </p>
+      <pre class="text-primary">
+var futbolista = { 
+  nombre: "Cristiano", 
+  apellido: "Ronaldo", 
+  edad: 30, 
+  direccion: {
+          pais: "España", 
+          ciudad: "Madrid",
+          calle: "La Finca"
+  },
+  club: {
+    nombre: "Real Madrid CF",
+    fundacion: 1902, 
+    cargos: { 
+      presidente: {
+        presiEjecutivo: "Florentino Pérez", 
+        presiDeHonor:   "Alfredo Di Stéfano"
+      }, 
+      entrenador: "Zinedine Zidane"	  
+	}
+  }   
+};       
+      </pre>
+      <h3 class="row">Notación de punto</h3>
+      <p class="row">
+        Como en Java, accedo usando punto para ir bajando de nivel.
+      </p>
+      <pre class="text-primary">
+console.log( futbolista.nombre );    
+console.log( futbolista.direccion.pais );    
+console.log( futbolista.club.cargos.presidente.presiDeHonor );
+futbolista.club.cargos.presidente.presiDeHonor = "Paco Gento";
+      </pre>
+      <p class="row">
+        Pero esto se puede hacer muy largo, como se acaba de ver en la última línea de código.
+		<br>Así que voy a emplear una variable que apunte a determinada propiedad, y desde ahí ya uso la notación.
+      </p>
+	  <pre class="text-primary">
+var cargosDelClub = futbolista.club.cargos;
+cargosDelClub.entrenador = "Guti";
+console.log( futbolista );	  
+	  </pre>
+      <h3 class="row">Notación de corchete</h3>
+      <p class="row">
+        La ventaja que presenta, es que puedo usar una variable para decidir qué propiedad 
+		voy a recuperar del objeto. 
+      </p>
+      <pre class="text-primary">
+console.log( futbolista["nombre"] );    
+console.log( futbolista["direccion"]["pais"] );  
+
+var campo = "edad";  
+console.log( futbolista [campo] );
+      </pre>
+      <h3 class="row">Emplear propiedades no definidas en el objeto</h3>
+      <p class="row">
+        Devuelven <code class="text-primary">undefined</code> y eso es problemático a la hora 
+		de rastrear un error porque el código no cancela.
+      </p>
+      <pre class="text-primary">  
+var campo = "edad2";  
+console.log( futbolista [campo] );      // undefined, edad2 es una propiedad que no existe en futbolista
+console.log( futbolista.edad2 );        // undefined, edad2 es una propiedad que no existe en futbolista
+      </pre>
+	  
+    </main>
+    
+        
+    <footer class="container" id="botones">
+      <div class="row"> 
+        <a href="..\seccion01_empezando\08ordenImportaciones.html" class="btn btn-primary mr-2">&lt;&lt; 08 El orden de las importaciones</a>
+        <a href="11notacion.html" class="btn btn-primary ml-2">Notación de punto y corchetes 11 &gt;&gt;</a>
+      </div>
+    </footer>
+    
+    <script>
+      var futbolista = { 
+        nombre: "Cristiano", 
+        apellido: "Ronaldo", 
+        edad: 30, 
+        direccion: {
+          pais: "España", 
+          ciudad: "Madrid",
+          calle: "La Finca"
+        },
+        club: {
+          nombre: "Real Madrid CF",
+          fundacion: 1902, 
+          cargos: { 
+            presidente: {
+              presiEjecutivo: "Florentino Pérez", 
+              presiDeHonor:   "Alfredo Di Stéfano"
+            }, 
+            entrenador: "Zinedine Zidane"			
+		  }
+        }     
+      };  
+
+      console.log( futbolista.nombre );    
+      console.log( futbolista.direccion.pais );   
+
+      console.log( futbolista.club.cargos.presidente.presiDeHonor );
+      futbolista.club.cargos.presidente.presiDeHonor = "Paco Gento";
+	  
+	  var cargosDelClub = futbolista.club.cargos;
+	  cargosDelClub.entrenador = "Guti";
+	  console.log( futbolista );
+	  
+	  console.log( futbolista["nombre"] );    
+	  console.log( futbolista["direccion"]["pais"] );  
+	  
+	  var campo = "edad";  
+	  console.log( futbolista [campo] );
+	  
+	  var campo = "edad2";  
+      console.log( futbolista [campo] );      // undefined, edad2 es una propiedad que no existe en futbolista
+      console.log( futbolista.edad2 );        // undefined, edad2 es una propiedad que no existe en futbolista
+    </script> 
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sección 1. Vídeo 04. Comprendiendo la consola. 05comprenderLaConsola.html  </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  
+  
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="h4 text-muted">Javascript: De 0 al infinito :: Sección 1 - Empezando</div>
+      </div>
+      <div class="row">
+        <div class="h2"><b>s1 v05 - Comprendiendo la consola</b></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h3 class="row"></h3>
+      <p class="row">
+	    Se va a llevar el código de la página HTML a un fichero de Javascript propio. 
+		Lo que facilita el mantenimiento y la comprensión del código. 
+		<pre class="text-primary">
+&lt;script type="text/javascript" src="05comprenderLaConsola.js"&gt;
+&lt;\script&gt;
+        </pre>
+	  </p>
+      <h3 class="row">La impresión de consola</h3>
+      <p class="row">
+	    La impresión de consola se va a usar mucho en este curso. 
+		sobre el Global Object. Puede ser que en mi código decida usar un identificador que 
+		ya existía previamente, como p.ej <code class="text-primary">Attr</code> que 
+		originalmente guarda una función, y entonces será machacado por lo mío.
+		<pre class="text-primary">
+&lt;script type="text/javascript"&gt;
+  alert( miVariable );          // Salta un cuadro de diálogo, detiene la ejecución del programa
+  console.log( miVariable );    // 
+  console.info( miVariable );   // Mensaje por consola. Icono azul
+  console.warn( miVariable );   // Mensaje por consola. Icono amarillo
+  console.error( miVariable );  // Mensaje por consola. Icono rojo
+&lt;\script&gt;
+		</pre>
+	  </p>
+      <h3 class="row">Manipular propiedades desde consola</h3>
+      <p class="row">
+	    Es muy sencillo y también se va a emplear mucho en el curso. 
+		Consiste simplemente en que escriba en la consola la asignación que quiera. 
+		Puedo ver como la asignación le cambia el valor 
+		<pre class="text-primary">
+En la línea de comandos de la consola Javascript (F12): 
+> miVariable
+> miVariable = "Ahora le pongo un valor nuevo, este rollazo"
+> miVariable
+		</pre>
+	  </p>
+    </main>
+    
+        
+    <footer class="container" id="botones">
+      <div class="row"> 
+        <a href="04encapsular.html" class="btn btn-primary mr-2">&lt;&lt; 04 Encapsular</a>
+        <a href="06undefined.html" class="btn btn-primary ml-2">Undefined 06 &gt;&gt;</a>
+      </div>
+    </footer>
+    
+    <script type="text/javascript">
+	</script> 
+  </body>
+</html>

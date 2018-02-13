@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sección 2. Vídeo 09. Estª dinámica. Tipos primitivos. 09primitivos.html  </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  
+  
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="h4 text-muted">Javascript: De 0 al infinito :: Sección 2 - Variables, objetos, Typeof y condicionales</div>
+      </div>
+      <div class="row">
+        <div class="h2"><b>s2 v09 - Estª dinámica. Tipos primitivos.</b></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h3 class="row">Hay 5 tipos de valores primitivos</h3>
+      <p class="row">
+        Los valores primitivos son datos que no son objetos y que no tienen métodos.
+        Las primitivas son inmutables, no se pueden cambiar.
+        <br>Hay cinco tipos en Javascript (seis en ECMAScript2015):
+      </p>
+      <pre class="text-primary">
+var miNumero    = 10;
+var miCadena    = "Roberto";
+var miBoolean   = false;
+var miUndefined = undefined;
+var miNulo      = null;
+      </pre>
+
+      <h3 class="row">Escritura dinámica</h3>     
+      <p class="row">
+        Las variables de Javascript no están tipificadas. 
+        Una variable declarada puede contener cualquier tipo de valor, se puede asignar un valor 
+        de un tipo y después asignar a esa misma variable otro tipo diferente. 
+      <pre class="text-primary">
+miNumero = 15;
+console.log(miNumero);                // 15
+miNumero = false;
+console.log(miNumero);                // false
+miNumero = "Cadena de caracteres";
+console.log(miNumero);                // "Cadena de caracteres"
+miNumero = undefined;
+console.log(miNumero);                // undefined
+      </pre>
+      
+      <h3 class="row">Objetos "wrappers" equivalentes a las primitivas</h3>
+      <p class="row">
+        Objetos <code class="text-primary">String</code>, <code class="text-primary">Number</code> 
+		y <code class="text-primary">Boolean</code> (undefined y null no tienen). Su método <code class="text-primary">valueOf()</code> devuelve el valor primitivo.
+      </p>
+      
+      <h3 class="row">Objetos</h3>    
+      <p class="row">
+        Un objeto viene a ser una colección de datos primitivos o de otros objetos.
+        <br>Se asigna a una variable definiéndolo con llaves { }
+        <br>Todo con una "nomenclatura de pares", se escribe un par clave-valor 
+        separado por dos puntos. Los diferentes pares se separan por comas.         
+      </p>
+      <pre class="text-primary">
+var objeto = { num : 12, 
+               cad : "Madrid", 
+               flg : false, 
+               objetoHijo : { hijoNum : 112, hijoCad : "Torrejón", hijoFlg : true }
+             }             
+      </pre>
+        
+    </main>
+    
+        
+    <footer class="container" id="botones">
+      <div class="row"> 
+        <a href="..\seccion01_empezando\08ordenImportaciones.html" class="btn btn-primary mr-2">&lt;&lt; 08 El orden de las importaciones</a>
+        <a href="10valorYReferencia.html" class="btn btn-primary ml-2">Por valor y referencia 10 &gt;&gt;</a>
+      </div>
+    </footer>
+    
+    <script>
+      var miNumero    = 10;
+      var miCadena    = "Roberto";
+      var miBoolean   = false;
+      var miUndefined = undefined;
+      var miNulo      = null;
+      
+      console.log(">>> INICIO >>> Asigno diferentes tipos a la variable miNumero");
+      miNumero = 15;
+      console.log("> miNumero=15;");
+      console.log(miNumero);
+      miNumero = false;
+      console.log("> miNumero=false;");
+      console.log(miNumero);
+      miNumero = "Cadena de caracteres";
+      console.log("> miNumero=\"Cadena de caracteres\";");
+      console.log(miNumero);
+      miNumero = undefined;
+      console.log("> miNumero=undefined;");
+      console.log(miNumero);
+      miNumero = { num : 12, cad : "Madrid", flg : false, hijo: { numHijo : 112, cadHijo : "Leganés" } };
+      console.log("> miNumero={ num : 12, cad : \"Madrid\", flg : false, hijo: { numHijo : 112, cadHijo : \"Leganés\" } };");
+      console.log(miNumero);
+      console.log(">>> FINAL  >>> Asigno diferentes tipos a la variable miNumero");      
+    </script> 
+  </body>
+</html>
