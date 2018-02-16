@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sección 2. Vídeo 12. Funciones en Javascript. 12funciones.html  </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  
+  
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="h4 text-muted">Javascript: De 0 al infinito :: Sección 2 - Variables, objetos, Typeof y condicionales</div>
+      </div>
+      <div class="row">
+        <div class="h2"><b>s2 v12 - Funciones en Javascript</b></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h3 class="row">Declarar una función</h3>
+      <div class="row">
+      <p class="column">
+        Las funciones se declaran con la palabra reservada <code>function</code> 
+        <br>seguida por el nombre de la función acompañada de unos paréntesis 
+        <br>y después, el código de la función entre llaves. <br>
+        <br>Los paréntesis pueden estar vacíos o indicar los parámetros que se pueden recibir.
+        <br>Como los objetos, las funciones también entre llaves; y es que realmente, <b>las funciones son objetos</b>. 
+      </p>
+      </div>
+      <pre class="text-primary">
+function imprimirVariables() {
+  var a = 20;
+  console.log(a);
+}     
+      </pre>
+	  
+      <h3 class="row">Las funciones son objetos</h3>
+      <div class="row">
+      <p class="column">
+        Las funciones, realmente, son objetos. Como ellos, se declara su contenido entre {} llaves.
+		se declaran con la palabra reservada <code>function</code> 
+        <br>Una función se invoca por su nombre y con los paréntesis después. OJO, que el detalle de los 
+		paréntesis es importante. 
+		<br>Si no se ponen los paréntesis, dado que las funciones son objetos, 
+		podría asignar la referencia al objeto/función a una variable. 
+      </p>
+      </div>	  
+      <pre class="text-primary">
+function imprimirHola() {
+  console.log("Hola");
+}     
+var salida = imprimirHola();    
+var referencia = imprimirHola; 
+referencia();                   // hola 
+      </pre>
+	  
+      <h3 class="row">Javascript crea un contexto para la función</h3>
+      <div class="row">
+        <p class="column">
+          Lo primero que hace Javascript es buscar la variable que se quiere imprimir en la función 
+          dentro del contexto de la propia función. 
+          <br>Si no la encuentra, va a un nivel de contexto padre y así hacia arriba sucesivamente, 
+          hasta llegar a un <strong>contexto global</strong>.
+        </p>
+      </div>
+      <pre class="text-primary">
+var a_dentroYFuera_antes = 11;
+var c_fuera_antes = 33; 
+
+function imprimirVariables() {
+  var a_dentroYFuera_antes = 111;
+  var b_dentro_antes = 222;
+  console.log(a_dentroYFuera_antes);  // 111
+  console.log(b_dentro_antes);        // 222
+  console.log(c_fuera_antes);         // 33
+  console.log(d_fuera_despues);       // undefined
+  console.log(e_enNingunSitio);       // Uncaught Reference ERROR (cancela la ejecución)
+}    
+
+var d_fueraDespues = 44;
+      </pre>
+      
+      <h3 class="row">Procedimientos y funciones en Javascript</h3>
+      <div class="row">
+        <p class="column">    
+        En Javascript sólo existen funciones, todos devuelven un valor (aunque aparenten ser un procedimiento).
+        <br>Lo voy a probar con una función vacía, que devolverá <code>undefined</code>.
+        </p>
+      </div>      
+      <pre class="text-primary">
+var a = 30;
+
+function funcionVacia() { }
+function imprimirVariables() {
+  console.log(a);
+}    
+var salida1 = imprimirVariables();
+var salida2 = funcionVacia(); 
+console.log(salida1);
+console.log(salida2);
+      </pre>     
+	  
+      <h3 class="row">Invocar una función antes de su declaración</h3>
+      <div class="row">
+        <p class="column">    
+          El primer barrido del intérprete Javascript ya ha reservado memoria para la función, así que 
+          saltará al código de la función, lo ejecutará, y no dará error. 
+        </p>
+      </div>      
+      <pre class="text-primary">
+imprimirAdios();
+function imprimirAdios() {
+  console.log("Adiós");
+}    
+      </pre>
+      
+    </main>
+    
+        
+    <footer class="container" id="botones">
+      <div class="row"> 
+        <a href="11notacion.html" class="btn btn-primary mr-2">&lt;&lt; 11 Notación de punto y de corchete</a>
+        <a href="13parametros.html" class="btn btn-primary ml-2">Parámetros de las funciones 13 &gt;&gt;</a>
+      </div>
+    </footer>
+    
+    <script>
+      console.log(" >>> Valores de las variables según se definan en diferentes contextos.") 
+      var a_dentroYFuera_antes = 11;
+      var c_fuera_antes = 33; 
+      function imprimirVariables() {
+        var a_dentroYFuera_antes = 111;
+        var b_dentro_antes = 222;
+        console.log(a_dentroYFuera_antes);  // 111
+        console.log(b_dentro_antes);        // 222
+        console.log(c_fuera_antes);         // 33
+        console.log(d_fuera_despues);       // undefined
+        // console.log(e_enNingunSitio);    // Uncaught Reference ERROR (cancela la ejecución)
+      }    
+      var d_fuera_despues = 44;	  
+	  imprimirVariables();
+
+	  console.log("");
+      console.log(" >>> Asignar a una variable la referencia de una función y no la salida de la ejecución");
+      function imprimirHola() {
+        console.log("Hola");
+      }     
+      var salida = imprimirHola();    
+      var referencia = imprimirHola; 
+      referencia();
+	  
+	  console.log("");
+      console.log(" >>> Las funciones siempre devuelven valor.") 
+	  console.log("     Salida de invocar una función vacía de código:")
+      function funcionVacia() { }
+      var salida2 = funcionVacia(); 
+      console.log(salida2);	 
+	  
+	  console.log("");
+      console.log(" >>> Las funciones se pueden invocar antes de pasar por el punto donde se declaran en el código.");
+	  imprimirAdios();
+      function imprimirAdios() {
+        console.log("Adiós");
+      }    
+    </script> 
+  </body>
+</html>

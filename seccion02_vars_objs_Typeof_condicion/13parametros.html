@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sección 2. Vídeo 13. Parámetros para las funciones. 13parametros.html  </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  
+  
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="h4 text-muted">Javascript: De 0 al infinito :: Sección 2 - Variables, objetos, Typeof y condicionales</div>
+      </div>
+      <div class="row">
+        <div class="h2"><b>s2 v13 - Parámetros para las funciones</b></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h3 class="row">Parámetros de una función</h3>
+      <div class="row">
+      <p class="column">
+        Una función puede recibir como parámetro: un tipo primitivo, un objeto o una función. 
+      </p>
+      </div>
+      <pre class="text-primary">
+var auxNombre = "Carlos";
+function imprimirNombre( pNombre ) {
+  console.log( pNombre );
+}     
+imprimirNombre("Javi");     // Invoco con una variable anónima 
+imprimirNombre(auxNombre);  // Invoco con una variable explícita
+      </pre>
+	  
+      <h3 class="row">Las funciones son objetos</h3>
+      <div class="row">
+      <p class="column">
+        Las funciones, realmente, son objetos. Como ellos, se declara su contenido entre {} llaves.
+		se declaran con la palabra reservada <code>function</code> 
+        <br>Una función se invoca por su nombre y con los paréntesis después. OJO, que el detalle de los 
+		paréntesis es importante. 
+		<br>Si no se ponen los paréntesis, dado que las funciones son objetos, 
+		podría asignar la referencia al objeto/función a una variable. 
+      </p>
+      </div>	  
+      <pre class="text-primary">
+function imprimirHola() {
+  console.log("Hola");
+}     
+var salida = imprimirHola();    
+var referencia = imprimirHola; 
+referencia();                   // hola 
+      </pre>
+	  
+      <h3 class="row">Javascript crea un contexto para la función</h3>
+      <div class="row">
+        <p class="column">
+          Lo primero que hace Javascript es buscar la variable que se quiere imprimir en la función 
+          dentro del contexto de la propia función. 
+          <br>Si no la encuentra, va a un nivel de contexto padre y así hacia arriba sucesivamente, 
+          hasta llegar a un <strong>contexto global</strong>.
+        </p>
+      </div>
+      <pre class="text-primary">
+var a_dentroYFuera_antes = 11;
+var c_fuera_antes = 33; 
+
+function imprimirVariables() {
+  var a_dentroYFuera_antes = 111;
+  var b_dentro_antes = 222;
+  console.log(a_dentroYFuera_antes);  // 111
+  console.log(b_dentro_antes);        // 222
+  console.log(c_fuera_antes);         // 33
+  console.log(d_fuera_despues);       // undefined
+  console.log(e_enNingunSitio);       // Uncaught Reference ERROR (cancela la ejecución)
+}    
+
+var d_fueraDespues = 44;
+      </pre>
+      
+      <h3 class="row">Procedimientos y funciones en Javascript</h3>
+      <div class="row">
+        <p class="column">    
+        En Javascript sólo existen funciones, todos devuelven un valor (aunque aparenten ser un procedimiento).
+        <br>Lo voy a probar con una función vacía, que devolverá <code>undefined</code>.
+        </p>
+      </div>      
+      <pre class="text-primary">
+var a = 30;
+
+function funcionVacia() { }
+function imprimirVariables() {
+  console.log(a);
+}    
+var salida1 = imprimirVariables();
+var salida2 = funcionVacia(); 
+console.log(salida1);
+console.log(salida2);
+      </pre>     
+	  
+      <h3 class="row">Invocar una función antes de su declaración</h3>
+      <div class="row">
+        <p class="column">    
+          El primer barrido del intérprete Javascript ya ha reservado memoria para la función, así que 
+          saltará al código de la función, lo ejecutará, y no dará error. 
+        </p>
+      </div>      
+      <pre class="text-primary">
+imprimirAdios();
+function imprimirAdios() {
+  console.log("Adiós");
+}    
+      </pre>
+      
+    </main>
+    
+        
+    <footer class="container" id="botones">
+      <div class="row"> 
+        <a href="12funciones.html" class="btn btn-primary mr-2">&lt;&lt; 12 Funciones en Javascript</a>
+        <a href="13parametros.html" class="btn btn-primary ml-2">Parámetros para las funciones 13 &gt;&gt;</a>
+      </div>
+    </footer>
+    
+    <script>
+	  console.log(" >>> Invoco una función pasándole un parámetro (el nombre a imprimir).");
+      var auxNombre = "Carlos";
+	  function imprimirNombre( pNombre ) {
+	    console.log( pNombre );
+	  }     
+	  imprimirNombre("Javi");     // Invoco con una variable anónima  
+	  imprimirNombre(auxNombre);  // Invoco con una variable explícita
+	  
+	  console.log("");
+	  console.log(" >>> Invoco una función pasándole dos parámetros (nombre y apellido a imprimir).");
+	  function imprimirNombreApellido( pNombre, pApellido ) {
+	    console.log( "Nombre: " + pNombre + ". Apellido: " + pApellido );
+	  }     
+	  imprimirNombreApellido("Zinedine", "Zidane");    
+	  
+	  console.log("");
+	  console.log(" >>> Invoco una función de dos parámetros, pasando sólo uno y pasando los dos.");
+	  function imprimirNombreApellidoOpcional( pNombre, pApellido ) {
+	    pApellido = pApellido || "** anónimo **";
+	    console.log( "Nombre: " + pNombre + ". Apellido: " + pApellido );
+	  }     
+	  imprimirNombreApellidoOpcional("Fabio");    
+	  imprimirNombreApellidoOpcional("Fabio", "Capello");    
+	  
+	  console.log("");
+	  console.log(" >>> Invoco una función pasándole como parámetro un objeto.");
+	  function imprimirObjeto( pPersona ) {
+	    console.log( pPersona.nombre + " " + pPersona.apellido );
+	  }     
+	  imprimirObjeto( {
+	    nombre: "Luka", 
+		apellido: "Modric"
+	  } );  // Invoco con un objeto anónimo    
+	  
+	  console.log("");
+	  console.log(" >>> Invoco una función pasándole como parámetro una función.");
+	  function imprimirFuncion( fn ) {
+	    fn();
+	  }     
+	  var miFuncion = function(){
+	    console.log("Función explícita, está asignada a una variable");
+	  };
+	  imprimirFuncion( function() {
+        console.log("Función anónima.");
+	  } );                           // Paso como parámetro una función anónima    
+	  imprimirFuncion( miFuncion );	 // Paso como parámetro una función explícita
+    </script> 
+	
+  </body>
+</html>
